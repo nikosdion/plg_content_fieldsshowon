@@ -535,13 +535,22 @@ class FieldsShowOn extends CMSPlugin implements SubscriberInterface
 		{
 			$node = dom_import_simplexml($child);
 
-			if ($node->nodeName === 'form')
+			if ($node->hasChildNodes())
 			{
-				$xml        = $this->reworkFormSource($node->ownerDocument->saveXML($node));
-				$xmlDoc     = new SimpleXMLElement($xml);
-				$domReplace = dom_import_simplexml($xmlDoc);
-				$nodeImport = $node->ownerDocument->importNode($domReplace, true);
-				$node->parentNode->replaceChild($nodeImport, $node);
+				/** @var DOMElement $childNode */
+				foreach ($node->childNodes as $childNode)
+				{
+					if ($childNode->nodeName !== 'form')
+					{
+						continue;
+					}
+
+					$xmlsource  = $this->reworkFormSource($childNode->ownerDocument->saveXML($childNode));
+					$xmlDoc     = new SimpleXMLElement($xmlsource);
+					$domReplace = dom_import_simplexml($xmlDoc);
+					$nodeImport = $childNode->ownerDocument->importNode($domReplace, true);
+					$childNode->parentNode->replaceChild($nodeImport, $childNode);
+				}
 			}
 
 			$showon = $node->getAttribute('showon');
