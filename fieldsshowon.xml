@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ @package   plg_content_fieldsshowon
+  ~ @copyright Copyright (c)2022 Nicholas K. Dionysopoulos / Akeeba Ltd
+  ~ @license   GNU General Public License version 2, or later; see LICENSE.txt
+  -->
+
+<extension version="4.0.0" type="plugin" group="content" method="upgrade">
+	<name>PLG_CONTENT_FIELDSSHOWON</name>
+	<version>1.0.0</version>
+	<creationDate>2022-09-01</creationDate>
+	<author>Nicholas K. Dionysopoulos</author>
+	<authorEmail>nicholas@dionysopoulos.me</authorEmail>
+	<authorUrl>https://www.dionysopoulos.me</authorUrl>
+	<copyright>Copyright (c)2022 Nicholas K. Dionysopoulos</copyright>
+	<license>GNU General Public License version 3, or later</license>
+	<description>PLG_CONTENT_FIELDSSHOWON_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Content\FieldsShowOn</namespace>
+	<files>
+		<folder>services</folder>
+		<folder plugin="fieldsshowon">src</folder>
+		<folder>xml</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/plg_content_fieldsshowon.ini</language>
+		<language tag="en-GB">en-GB/plg_content_fieldsshowon.sys.ini</language>
+	</languages>
+</extension>

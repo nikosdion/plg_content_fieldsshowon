@@ -1,0 +1,17 @@
+{
+  "name": "nikosdion/plg_content_fieldsshowon",
+  "description": "Add ShowOn capability to Joomla custom fields",
+  "minimum-stability": "stable",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nicholas K. Dionysopoulos",
+      "email": "nicholas@dionysopoulos.me"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "ext-simplexml": "*",
+    "ext-dom": "*"
+  }
+}

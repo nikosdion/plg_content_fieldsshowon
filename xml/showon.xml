@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ @package   plg_content_fieldsshowon
+  ~ @copyright Copyright (c)2022 Nicholas K. Dionysopoulos / Akeeba Ltd
+  ~ @license   GNU General Public License version 2, or later; see LICENSE.txt
+  -->
+
+<form>
+    <fields name="fieldparams">
+        <fieldset name="fieldparams">
+            <field name="showon"
+                   type="text"
+                   label="PLG_CONTENT_FIELDSSHOWON_FIELD_SHOWON_LABEL"
+                   description="PLG_CONTENT_FIELDSSHOWON_FIELD_SHOWON_DESC"/>
+        </fieldset>
+    </fields>
+</form>
