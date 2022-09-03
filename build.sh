@@ -7,4 +7,4 @@
 
 VERSION=$(grep -E '<version>([[:digit:]]+\.?){3}' fieldsshowon.xml | grep -Eo '([[:digit:]]|\.)+')
 
-zip -r plg_content_fieldsshowon-$VERSION * -i language/\* services/\* src/\* xml/\* fieldsshowon.xml
+zip -r plg_content_fieldsshowon-$VERSION.zip * -i language/\* services/\* src/\* xml/\* fieldsshowon.xml
