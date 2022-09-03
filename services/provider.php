@@ -8,7 +8,6 @@
 defined('_JEXEC') || die;
 
 use Joomla\CMS\Extension\PluginInterface;
-use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
@@ -30,10 +29,13 @@ return new class implements ServiceProviderInterface {
 		$container->set(
 			PluginInterface::class,
 			function (Container $container) {
-				$config     = (array) PluginHelper::getPlugin('content', 'fieldsshowon');
-				$subject    = $container->get(DispatcherInterface::class);
+				$config  = (array) PluginHelper::getPlugin('content', 'fieldsshowon');
+				$subject = $container->get(DispatcherInterface::class);
+				$plugin  = new FieldsShowOn($subject, $config);
 
-				return new FieldsShowOn($subject, $config);
+				$plugin->setApplication(\Joomla\CMS\Factory::getApplication());
+
+				return $plugin;
 			}
 		);
 	}
