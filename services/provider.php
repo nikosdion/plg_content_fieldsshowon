@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   plg_content_fieldsshowon
- * @copyright Copyright (c)2022 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright Copyright (c)2022-2023 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license   GNU General Public License version 2, or later; see LICENSE.txt
  */
 
