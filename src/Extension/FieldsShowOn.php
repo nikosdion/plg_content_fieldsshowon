@@ -578,17 +578,18 @@ class FieldsShowOn extends CMSPlugin implements SubscriberInterface
 	 */
 	private function reworkShowOn(string $showon): string
 	{
-		// Split the showon value across '[AND]' and '[OR]'[OR]
+		// Split the showon value across '[AND]' and '[OR]'
 		$streamed = [];
 
 		while (str_contains($showon, '[AND]') || str_contains($showon, '[OR]'))
 		{
 			$andPos    = strpos($showon, '[AND]');
 			$orPos     = strpos($showon, '[OR]');
-			$delimiter = $andPos < $orPos || $orPos === false ? '[AND]' : '[OR]';
+			$delimiter = $andPos > $orPos || $orPos === false ? '[AND]' : '[OR]';
 			[$control, $showon] = explode($delimiter, $showon, 2);
-
-			$streamed[] = $control;
+			
+			// Add the delimiter back so comparisons work
+			$streamed[] = $control . $delimiter;
 		}
 
 		// Remember to add the last bit (or only bit, if there were no boolean operators)
@@ -608,6 +609,7 @@ class FieldsShowOn extends CMSPlugin implements SubscriberInterface
 			[$formControl, $condition] = explode(':', $item);
 
 			$suffix      = str_ends_with($formControl, '!') ? '!' : '';
+			$formControl = rtrim($formControl,'!');
 			$formControl = array_search($formControl, $this->customFieldMap) ?: $formControl;
 			$item        = $formControl . $suffix . ':' . $condition;
 		}
