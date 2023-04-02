@@ -609,6 +609,7 @@ class FieldsShowOn extends CMSPlugin implements SubscriberInterface
 			[$formControl, $condition] = explode(':', $item);
 
 			$suffix      = str_ends_with($formControl, '!') ? '!' : '';
+			$formControl = rtrim($formControl,'!');
 			$formControl = array_search($formControl, $this->customFieldMap) ?: $formControl;
 			$item        = $formControl . $suffix . ':' . $condition;
 		}
