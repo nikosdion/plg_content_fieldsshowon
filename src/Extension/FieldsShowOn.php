@@ -585,7 +585,7 @@ class FieldsShowOn extends CMSPlugin implements SubscriberInterface
 		{
 			$andPos    = strpos($showon, '[AND]');
 			$orPos     = strpos($showon, '[OR]');
-			$delimiter = $andPos < $orPos || $orPos === false ? '[AND]' : '[OR]';
+			$delimiter = $andPos > $orPos || $orPos === false ? '[AND]' : '[OR]';
 			[$control, $showon] = explode($delimiter, $showon, 2);
 
 			$streamed[] = $control;
